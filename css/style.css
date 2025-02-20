@@ -1,21 +1,25 @@
+/* General Styles */
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f8f8f8; /* Light gray background */
+    color: #333; /* Dark gray text */
 }
 
+/* Header Styles */
+
 header {
-    background-color: #333;
+    background: linear-gradient(to right, #4d2e79, rgb(241, 230, 166), #c0c0c0, rgb(241, 230, 166) ,rgb(73, 2, 73)); /* Purple to silver gradient */
     color: #fff;
     padding: 1rem;
     text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
-
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -24,20 +28,135 @@ nav ul li {
 }
 
 nav a {
-    color: #fff;
+    color: #fff; /* White text */
     text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition on hover */
 }
 
+nav a:hover {
+    color: #ffd700; /* Gold color on hover */
+}
+
+/* Main Styles */
 main {
     padding: 20px;
 }
 
+/* Hero Section Styles */
+#hero {
+    background-color: #e6d8f0; /* Light purple background */
+    padding: 2rem;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#hero h2 {
+    color: #6a4c93; /* Dark purple */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#hero ul {
+    list-style: none;
+    padding: 0;
+}
+
+#hero li {
+    margin-bottom: 0.5rem;
+}
+
+/* About Section Styles */
+#about {
+    margin-bottom: 20px;
+}
+
+#about h2 {
+    color: #6a4c93; /* Dark purple */
+    margin-bottom: 1rem;
+}
+
+/* Featured Podcast Styles */
+#featured-podcast {
+    background-color: #f0f0f0; /* Light gray */
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#featured-podcast h2 {
+    color: #6a4c93; /* Dark purple */
+    margin-bottom: 1rem;
+}
+
+/* Subscription Styles */
+#subscription {
+    background-color: #e6d8f0; /* Light purple background */
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#subscription h2 {
+    color: #6a4c93; /* Dark purple */
+    margin-bottom: 1rem;
+}
+
+#subscription input[type="email"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+#subscription button[type="submit"] {
+    background-color: #6a4c93; /* Dark purple */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#subscription button[type="submit"]:hover {
+    background-color: #513a72; /* Darker purple on hover */
+}
+
+/* Footer Styles */
 footer {
-    background-color: #333;
+    background-color: #6a4c93; /* Dark purple background */
     color: #fff;
     text-align: center;
     padding: 1rem;
-    position: fixed;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Button Styles */
+.button {
+    background-color: #6a4c93; /* Dark purple */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #513a72; /* Darker purple on hover */
+}
+
+/* Add this to make the website responsive */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #subscription input[type="email"] {
+        width: 100%;
+    }
 }
