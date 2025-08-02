@@ -1,0 +1,120 @@
+/* Card Container */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+   
+  
+}
+
+/* Individual Blog Card */
+.blog-card {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+    
+   
+}
+
+.blog-card:hover {
+    transform: scale(1.05); 
+}
+
+/* Card Inner (for the flip effect) */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Flipped State */
+.blog-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card Front and Back */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333;
+    font-size: 1.2em;
+}
+
+/* Card Front Styling */
+.card-front {
+    background-color: rgba(106, 76, 147, 0.2); 
+}
+
+/* Card Back Styling */
+.card-back {
+    background-color: rgba(241, 230, 166, 0.3); 
+    transform: rotateY(180deg);
+}
+
+/* Card Content (Titles, Paragraphs) */
+.card-front h3, .card-back h3 {
+    color: #6a4c93;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card-front p, .card-back p {
+    text-align: center;
+    line-height: 1.6;
+}
+
+/*Confetti Canvas*/
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: 1000; /* Ensure it's on top */
+}
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .card-container {
+        width: 95%;
+    }
+
+    .blog-card {
+        height: 200px;
+        margin-bottom: 15px;
+    }
+
+    .card-front p, .card-back p {
+        font-size: 1em;
+    }
+}
+.card-back .card-link {
+    display: inline-block;
+    background-color: #6a4c93;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.card-back .card-link:hover {
+    background-color: #513a72; 
+}

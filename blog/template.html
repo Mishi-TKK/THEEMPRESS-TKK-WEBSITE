@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- === STEP 1: UPDATE YOUR POST TITLE HERE === -->
+    <title>New Post Title - The Empress|The King's Heir</title>
+    
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <!-- This header should be consistent across all pages -->
+        <img src="../images/blog_logo.jpg" alt="Empress Logo" class="logo">
+        <h1 class="header-title"><strong>The Empress Forge</strong></h1>
+        <nav>
+            <button class="menu-toggle" aria-label="Toggle Navigation">☰</button>
+            <ul class="nav-list">
+                <li><a href="../pages/index.html" class="nav-button">Home</a></li>
+                <li><a href="../pages/blog.html" class="nav-button">Blog</a></li>
+                <li><a href="../pages/cafe.html" class="nav-button">Empress Cafe</a></li>
+                <li><a href="../pages/secretplace.html" class="nav-button">Enter the Secret Place</a></li>
+                <li><a href="../pages/contact.html" class="nav-button">Contact</a></li>
+                <li><a href="../pages/blog-archive.html" class="nav-button">Blog Archive</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-post">
+            <!-- Optional Audio Player -->
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="font-style: italic;">Want to play cafe background music?. Use the button below to control.</p>
+                <audio id="post-audio" loop>
+                    <source src="../audio/Empress-cafe.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button id="post-audio-toggle" class="play-button">
+                    <span>▶</span>
+                </button>
+            </div>
+            
+            <!-- === STEP 2: UPDATE YOUR H2 TITLE HERE === -->
+            <h2>Full Title of Your New Blog Post</h2>
+            
+            <!-- === STEP 3: REPLACE THE CONTENT BELOW WITH YOUR NEW ARTICLE === -->
+            
+            <p>Hey Beloved!</p>
+            <p>This is where the main body of your new blog post will go. You can start with an introductory paragraph right here.</p>
+
+            <h3>This is a Sample Subheading</h3>
+            <p>You can structure your article with paragraphs, lists, and scripture references just like your other posts. This template provides the full framework so you only need to focus on the writing.</p>
+            <ul>
+                <li>This is a sample list item.</li>
+                <li>You can add as many as you need.</li>
+            </ul>
+            <p>Remember to use the 📖 emoji for your scripture references for consistency!</p>
+            
+            <!-- ================================================================ -->
+            
+            <!-- You can keep sections like this as a guide for your post structure -->
+            <h3>Final Thoughts</h3>
+            <p>Your concluding thoughts and summary can go here.</p>
+            
+            <p><strong>Ponder 🤔</strong> What is a good reflective question for this post?</p>
+            <p><strong>Share this post</strong> with someone who might be blessed by it!</p>
+            <p>Thank you for reading, Beloved! Many blessings! 🙌</p>
+
+            <!-- Clue section can be kept and commented out, or deleted if not needed for the new post -->
+            <!-- 
+            <div class="secret-key-clue">
+                <h4>A Key to the Secret Place 🗝️</h4>
+                <p>If this post contains a clue, you can add the text here.</p>
+            </div>
+            -->
+              
+        </section>
+        
+        <!-- Navigation back to the archive -->
+        <div class="button-container" style="margin-top: 30px; margin-bottom: 20px;">
+            <a href="../pages/blog-archive.html" class="button">Back to Blog Archive</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 The Empress's Forge: The King's Heir Initiative. All Rights Reserved</p>
+    </footer>
+
+    <!-- Scripts at the bottom -->
+    <script src="../js/script.js"></script>
+    <!-- Script for the in-post audio player -->
+    <script>
+        const postAudio = document.getElementById('post-audio');
+        const postToggleButton = document.getElementById('post-audio-toggle');
+        
+        if (postAudio && postToggleButton) {
+            const postButtonSpan = postToggleButton.querySelector('span');
+
+            postToggleButton.addEventListener('click', () => {
+                if (postAudio.paused) {
+                    postAudio.play();
+                } else {
+                    postAudio.pause();
+                }
+            });
+
+            postAudio.onplay = () => { postButtonSpan.textContent = '❚❚'; };
+            postAudio.onpause = () => { postButtonSpan.textContent = '▶'; };
+        }
+    </script>
+</body>
+</html>

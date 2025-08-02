@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Archive - The Empress|The King's Heir</title>
+    <link rel="stylesheet" href="../css/style.css"> <!-- Your global styles -->
+    <link rel="stylesheet" href="../css/card.css">   <!-- Your card styles -->
+    <style>
+        /* Page-specific title styling */
+        .archive-page-main-title {
+            text-align: center;
+            color: #6a4c93; /* Match blog post h2 color */
+            margin-top: 30px;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+        }
+        .archive-page-subtitle {
+            text-align: center;
+            color: #555; /* Or your preferred subtitle color */
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        .card-back ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        .card-back li {
+            margin-bottom: 8px;
+        }
+        .card-back li a.post-link {
+            text-decoration: none;
+            color: #513a72;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: inline-block;
+            padding: 5px 0;
+        }
+        .card-back li a.post-link:hover {
+            text-decoration: underline;
+            color: #6a4c93;
+        }
+        .card-back p.series-description {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.4;
+        }
+        main {
+             background-color: rgba(255, 255, 255, 0.1);
+             backdrop-filter: blur(2px);
+             padding-top: 1px;
+             padding-bottom: 1px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1><strong>Welcome To The Blog Archive</strong></h1>
+    <nav>
+    <ul class="nav-list">
+        <li><a href="index.html" class="nav-button">Home</a></li>
+        <li><a href="blog.html" class="nav-button">Blog</a></li>
+        <li><a href="cafe.html" class="nav-button">Empress Cafe</a></li>
+        <li><a href="secretplace.html" class="nav-button">Enter the Secret Place</a></li>
+        <li><a href="contact.html" class="nav-button">Contact</a></li>
+        <li><a href="blog-archive.html" class="nav-button active">Blog Archive</a></li>
+    </ul>
+    </nav>
+</header>
+
+<main>
+    <h2 class="archive-page-main-title"><strong>Explore Archive</strong></h2>
+    <p class="archive-page-subtitle"><em><strong>Explore the teachings and insights shared on The Empress's Forge.</em></strong></p>
+
+    <audio id="flipSound" src="../audio/card-flip.mp3"></audio>
+    <canvas id="confetti-canvas"></canvas> <!-- Ensure confetti canvas is here -->
+
+
+    <div class="card-container">
+
+        <!-- Card 1: Understanding Who Lives in You -->
+        <div class="blog-card"> 
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3>Understanding Who Lives in You</h3>
+                    <p>(The Holy Spirit: Who He is & His work)</p>
+                </div>
+                <div class="card-back">
+                    <h3>The Holy Spirit</h3>
+                    <p class="series-description">Explore His divine nature and empowering presence.</p>
+                    <ul class="archive-post-list">
+                        <li><a href="../blog/Understanding-Who-Lives-in-You.html"  class="nav-button">Part 1: Who is He?</a></li>
+                        <li><a href="../blog/Understanding-Who-Lives-in-Youpost2.html" class="nav-button">Part 2: His Work in You</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Spiritual Identity & Authority -->
+        <div class="blog-card"> 
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3>Spiritual Identity & Authority</h3>
+                    <p>(Understanding who you are in Christ)</p>
+                </div>
+                <div class="card-back">
+                    <h3>Identity & Authority</h3>
+                    <p class="series-description">Uncover your true identity and the authority you possess.</p>
+                    <ul class="archive-post-list">
+                        <li><a href="../blog/spiritual-identity-authority.html" class="nav-button">Part 1: Your Identity in Christ</a></li>
+                        <li><a href="../blog/spiritual-id-auth-post2.html" class="nav-button">Part 2: Walking in Authority</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Faith & The Supernatural -->
+        <div class="blog-card"> 
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3>Faith & The Supernatural</h3>
+                    <p>(Walking in faith & experiencing God's power)</p>
+                </div>
+                <div class="card-back">
+                    <h3>Faith & The Supernatural</h3>
+                    <p class="series-description">Unlock the realms of faith and supernatural living.</p>
+                    <ul class="archive-post-list">
+                        <li><a href="../blog/faith-supernatural.html" class="nav-button">Part 1: The Foundation of Faith</a></li>
+                        <li><a href="../blog/faith-super-post2.html"class="nav-button">Part 2: Functioning in the Supernatural</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Discernment & Spiritual Warfare -->
+        <div class="blog-card"> 
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3>Discernment & Spiritual Warfare</h3>
+                    <p>(Standing firm against the enemy)</p>
+                </div>
+                <div class="card-back">
+                    <h3>Discernment & Warfare</h3>
+                    <p class="series-description">Equip yourself to discern truth and engage in spiritual victory.</p>
+                    <ul class="archive-post-list">
+                        <li><a href="../blog/discernment-warfare.html" class="nav-button">Part 1: The Gift of Discernment</a></li>
+                        <li><a href="../blog/discern-warfare-post2.html" class="nav-button">Part 2: Spiritual Warfare: Standing Firm</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5: Purpose & Destiny -->
+        <div class="blog-card"> 
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3>Purpose & Destiny</h3>
+                    <p>(Stepping into your God-ordained calling)</p>
+                </div>
+                <div class="card-back">
+                    <h3>Purpose & Destiny</h3>
+                    <p class="series-description">Discover your unique purpose and embrace your divine destiny.</p>
+                    <ul class="archive-post-list">
+                        <li><a href="../blog/purpose-destiny.html" class="nav-button">Part 1: Discovering Your Purpose</a></li>
+                        <li><a href="../blog/purpose-destiny-post2.html" class="nav-button">Part 2: Embracing Your Destiny</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6: The End Times & God’s Kingdom -->
+        <div class="blog-card"> 
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3>The End Times & God’s Kingdom</h3>
+                    <p>(Staying vigilant and aligned with God’s will)</p>
+                </div>
+                <div class="card-back">
+                    <h3>End Times & Kingdom</h3>
+                    <p class="series-description">Navigate these times with hope and live as a Kingdom citizen.</p>
+                    <ul class="archive-post-list">
+                        <li><a href="../blog/end-times-kingdom.html" class="nav-button">Part 1: Navigating the End Times</a></li>
+                        <li><a href="../blog/end-times-kingdom-post2.html" class="nav-button">Part 2: Living in God's Kingdom</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- End card-container -->
+</main>
+
+<footer>
+    <p>© 2025 The Empress's Forge: The King's Heir Initiative. All Rights Reserved</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/card.js"></script>
+<!-- You probably DON'T need cafe.js on this page unless it has other generic utilities you use -->
+<!-- <script src="../js/cafe.js"></script> -->
+
+</body>
+</html>

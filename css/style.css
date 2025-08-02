@@ -3,38 +3,85 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8; /* Light gray background */
-    color: #333; /* Dark gray text */
+    /*background-color: #f8f8f8;*/
+    color: #333;
+    background-image: url('../images/background.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
 }
 
 /* Header Styles */
-
 header {
-    background: linear-gradient(to right, #4d2e79, rgb(241, 230, 166), #c0c0c0, rgb(241, 230, 166) ,rgb(73, 2, 73)); /* Purple to silver gradient */
+    background: linear-gradient(to right, #4d2e79, rgb(241, 230, 166), #c0c0c0, rgb(241, 230, 166), rgb(73, 2, 73));
     color: #fff;
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
-nav ul {
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.nav-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    gap: 20px;
 }
 
-nav ul li {
+.nav-list li {
     display: inline;
-    margin-right: 20px;
 }
 
 nav a {
-    color: #fff; /* White text */
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s ease; /* Smooth transition on hover */
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #ffd700; /* Gold color on hover */
+    color: #ffd700;
+}
+
+/* Hamburger Menu for Mobile */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: #4d2e79;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .nav-list.active {
+        display: flex;
+    }
 }
 
 /* Main Styles */
@@ -42,64 +89,106 @@ main {
     padding: 20px;
 }
 
-/* Hero Section Styles */
+/* Hero Section */
 #hero {
-    background-color: #e6d8f0; /* Light purple background */
+    background-color: #e6d8f0;
     padding: 2rem;
     border-radius: 5px;
     text-align: center;
     margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #hero h2 {
-    color: #6a4c93; /* Dark purple */
+    color: #6a4c93;
     font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: -20px;
+}
+
+#hero p {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    text-align: center;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
     margin-bottom: 1rem;
 }
 
 #hero ul {
     list-style: none;
     padding: 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 #hero li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-bottom: 0.5rem;
 }
 
-/* About Section Styles */
+#hero li::before {
+    content: "✔";
+    color: #6a4c93;
+    font-weight: bold;
+}
+.button {
+    display: inline-block;
+    background-color: #6a4c93; 
+    color: #fff; 
+    padding: 0.8rem 1.5rem; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease,transform 0.3s ease,box-shadow 0.3s ease; 
+    margin-top: 20px;
+    
+    
+}
+
+.button:hover {
+    background-color: #513a72; 
+    transform: scale(1.1);
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* About Section */
 #about {
-    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    padding: 2rem;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 20px;
 }
 
 #about h2 {
-    color: #6a4c93; /* Dark purple */
+    color: #6a4c93;
+    margin-bottom: 1rem;
+    padding: 0;
+    margin-top:-20px;
+}
+
+#about p {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
     margin-bottom: 1rem;
 }
 
-/* Featured Podcast Styles */
-#featured-podcast {
-    background-color: #f0f0f0; /* Light gray */
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-#featured-podcast h2 {
-    color: #6a4c93; /* Dark purple */
-    margin-bottom: 1rem;
-}
-
-/* Subscription Styles */
+/* Subscription Section */
 #subscription {
-    background-color: #e6d8f0; /* Light purple background */
+    background-color: #e6d8f0;
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
-}
-
-#subscription h2 {
-    color: #6a4c93; /* Dark purple */
-    margin-bottom: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 #subscription input[type="email"] {
@@ -111,52 +200,896 @@ main {
 }
 
 #subscription button[type="submit"] {
-    background-color: #6a4c93; /* Dark purple */
+    background-color: #6a4c93;
     color: #fff;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 #subscription button[type="submit"]:hover {
-    background-color: #513a72; /* Darker purple on hover */
+    background-color: #513a72;
+    transform: scale(1.05);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
-
 /* Footer Styles */
 footer {
-    background-color: #6a4c93; /* Dark purple background */
+    background-color: #6a4c93;
     color: #fff;
     text-align: center;
     padding: 1rem;
-    bottom: 0;
     width: 100%;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Blog Section */
+.blog-post {
+    background-color: #e6d8f0; /* Same as Hero Section */
+    padding: 2rem;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
+    letter-spacing: 0.5px;
 }
 
-/* Button Styles */
-.button {
-    background-color: #6a4c93; /* Dark purple */
-    color: #fff;
-    padding: 0.5rem 1rem;
+.blog-post h2, .blog-post h3 {
+    color: #6a4c93; 
+    text-align: center !important;
+    margin-bottom: 1rem;
+}
+
+.blog-post p {
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    text-align: center !important;
+}
+
+.blog-post table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem auto;
+    max-width: 700px;
+    text-align: center;
+    background: #f0f0f0; 
     border-radius: 5px;
+    overflow: hidden;
+}
+
+.blog-post table th, .blog-post table td {
+    border: 1px solid #ccc; 
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.blog-post table th {
+    background-color: #6a4c93;
+    color: #fff;
+    font-weight: bold;
+}
+
+.blog-post table tr:nth-child(even) {
+    background-color: #e6d8f0;
+}
+
+.blog-post .prayer {
+    background-color: #f0f0f0;
+    padding: 1.5rem;
+    border-left: 5px solid #6a4c93;
+    font-style: italic;
+    margin: 1.5rem auto;
+    max-width: 700px;
+    border-radius: 5px;
+}
+
+.blog-post .cta {
+    text-align: center;
+    font-weight: bold;
+    background: #e6d8f0;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.blog-post ul {
+    list-style-position: inside; 
+    text-align: center;         
+    padding-left: 0;            
+}
+
+.blog-post ul li {
+    display: inline-block;      
+    text-align: center;         
+}
+/* Whisper List Animation */
+.whisper-list {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+.whisper-list li {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    animation: bounce 2s infinite alternate;
+}
+
+.whisper-list li::before {
+    content: "💬 ";
+    color: #6a4c93;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 8px;
+    animation: fadeIn 2s ease-in-out;
+}
+audio#victory {
+    outline: none;
+    display: none; /* Hidden but will play */
+}
+
+audio#victory.playing {
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 15px rgba(106, 76, 147, 0.8); }
+    100% { box-shadow: 0 0 30px rgba(106, 76, 147, 0.5); }
+}
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+.prayer-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 3s ease-in-out;
+}
+
+.prayer-box textarea {
+    width: 90%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.prayer-box button:hover {
+    background-color: #513a72;
+    transform: scale(1.05);
+}
+
+.scripture:hover {
+    color: #6a4c93;
+    text-shadow: 0px 0px 20px rgba(106, 76, 147, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.blog-post {
+    animation: fadeIn 2s ease-in-out;
+    opacity: 1; 
+    transition: opacity 0.5s ease-in-out;
+}
+/* Blog Content Styling */
+.blog-post {
+    animation: fadeIn 2s ease-in-out forwards;
+    opacity: 1; 
+    transition: opacity 0.5s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    backdrop-filter: blur(5px); 
+   
+}
+
+/* List with Emoji and Hover Effects */
+.blog-post ul {
+    list-style: none;
+    padding: 0;
+    text-align: center; 
+}
+
+.blog-post ul li {
+    font-size: 1.1rem;
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block; 
+    background: rgba(106, 76, 147, 0.2);
+    border-radius: 10px;
+    width: 80%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.blog-post ul li:hover {
+    background: #6a4c93;
+    color: white;
+    transform: scale(1.05);
+}
+
+.blog-post ul li::before {
+    content: "💭 "; /* Whisper Emoji */
+    font-size: 1.4rem;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Show Prayer Request Box */
+#prayer-request {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.show-prayer {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.prayer-button {
+    background-color: #6a4c93;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.prayer-button:hover {
+    background: #513a72;
+    transform: scale(1.1);
+}
+.password-gate {
+    margin-top: 100px;
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: 100px auto;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.password-gate input {
+    padding: 10px;
+    margin: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-gate button {
+    padding: 10px;
+    background: #6a4c93; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.password-gate button:hover {
+    background: #513a72; 
+    transform: scale(1.05);
+}
+#message {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    font-style: italic; 
+    letter-spacing: 1px; 
+    text-align: center;
+}
+
+#message.visible {
+    opacity: 1;
+}
+audio {
+    opacity: 0; /* Keep audio hidden */
+}
+.password-gate.fade-out {
+    transition: opacity 2s ease-out;
+    opacity: 0;
+}
+#message {
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+
+#message.visible {
+    opacity: 1;
+}
+.blessing-message {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0; /* Hidden until the gates open */
+    transition: opacity 2s ease-in-out;
+    color: #6a4c93; 
+    font-weight: bold;
+}
+
+.blessing-message.visible {
+    opacity: 1; 
+}
+
+.password-gate.fade-out {
+    transition: opacity 2s ease-out;
+    opacity: 0; 
+}
+/* Explore Topics Section */
+.explore-topics {
+    background-color: rgba(106, 76, 147, 0.1); 
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.explore-topics h2 {
+    font-size: 24px;
+    color: #6a4c93; 
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.topic-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.topic-list li {
+    margin-bottom: 10px;
+}
+
+.topic-list li a {
+    color: #6a4c93; 
     text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for links */
+.topic-list li a:hover {
+    color: #ffd700; 
+    text-decoration: underline;
+}
+
+/* Grid layout for larger screens, stacking on smaller screens */
+.explore-topics .topic-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.explore-topics .topic-list li {
+    font-size: 16px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .explore-topics .topic-list {
+        grid-template-columns: 1fr; /* Stack items on mobile */
+    }
+}
+/* Specific styles for Spiritual Identity & Authority Page */
+
+/* Blog Post Layout */
+.blog-post {
+    background-color: #f0e6f6; 
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+}
+
+/* Blog Post Titles */
+.blog-post h2 {
+    color: #6a4c93; 
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.blog-post h3 {
+    color: #6a4c93; 
+    text-align: left;
+    margin-top: 2rem;
+}
+
+/* Paragraph styling */
+.blog-post p {
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+/* Table Styles */
+.blog-post table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post table th, .blog-post table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Table Header Styling */
+.blog-post table th {
+    background-color: #6a4c93; 
+    color: white;
+    font-weight: bold;
+}
+
+/* Table Row Hover Effect */
+.blog-post table tr:hover {
+    background-color: #e6d8f0; 
+}
+
+/* Call to Action Box */
+.blog-post .cta {
+    background-color: #e6d8f0;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 3rem auto;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Prayer Box Styling */
+.blog-post .prayer {
+    background-color: #f0f0f0;
+    padding: 2rem;
+    border-left: 5px solid #6a4c93;
+    font-style: italic;
+    margin: 2rem auto;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+/* List of Steps or Topics */
+.blog-post ul {
+    list-style-position: inside;
+    padding-left: 0;
+    margin: 2rem auto;
+}
+
+.blog-post ul li {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Whisper List Animations */
+.whisper-list {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+.whisper-list li {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    animation: bounce 2s infinite alternate;
+}
+
+.whisper-list li::before {
+    content: "💬 ";
+    color: #6a4c93;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-right: 8px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Keyframe Animations */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+h2{
+    text-align: center !important;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px; 
+}
+
+.button-container .button {
+    margin: 0; 
+}
+.show-prayer-box {
+    display: block !important;
+}
+.password-gate {
+    margin-top: 100px;
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: 100px auto;
+    animation: fadeIn 3s ease-in-out;
+    position: relative; 
+}
+
+.password-gate input {
+    padding: 10px;
+    margin: 10px auto; 
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block; 
+}
+
+.password-gate button {
+    padding: 10px 20px; 
+    background: #6a4c93;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    white-space: nowrap; 
+    display: inline-block; 
+    margin: 10px auto; 
+}
+
+.password-gate button:hover {
+    background: #513a72;
+    transform: scale(1.05);
+}
+.secret-place-content {
+    display: none;
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: 100px auto;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.secret-place-content h3 {
+    margin-bottom: 1rem;
+}
+
+.secret-place-content textarea {
+    width: 90%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+audio {
+    display: none;
+}
+header{
+    background: linear-gradient(to right, #4d2e79, rgb(241, 230, 166), #c0c0c0, rgb(241, 230, 166), rgb(73, 2, 73));
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;           
+    align-items: center;     
+    justify-content: space-between; 
+}
+
+.logo {
+    max-height: 50px;       
+    margin-right: 20px;  
+    border-radius: 50%;   
+}
+
+.header-title {
+   flex-grow: 1; 
+   text-align: center; 
+   color:#4d2e79;
+   
+}
+
+nav {
+   position: relative; 
+}
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; 
+        align-items: center;       
+    }
+
+    .logo {
+        margin-bottom: 10px;    
+        margin-right: 0;         
+    }
+    
+    .header-title {
+       text-align: center; 
+    }
+}
+
+.logo {
+    max-height: 120px; 
+    filter: brightness(1.2) contrast(1.3); 
+    margin-right: 20px;
+}
+h1{
+    text-align: center !important;
+    color:#4d2e79;
+}
+/*Header*/
+header{
+    position:relative;
+    text-align: center;
+ }
+ .nav-logo {
+    width: 100px; 
+    height: auto; 
+    display: block;
+}
+.nav-logo {
+    margin: 0 auto;
+    display: block;
+}
+nav {
+    text-align: center;
+}
+
+.nav-logo {
+    display: block;
+    margin: 0 auto;
+    width: 10%; 
+    border-radius: 50%;
+    
+    
+}
+p{
+    text-align: center;
+}
+/* Comment Section */
+.comments {
+    background-color: rgba(106, 76, 147, 0.1) ; 
+    padding: 1.2rem ; 
+    margin-top: 25px ; 
+    border-radius: 8px ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+    max-width: 550px ; 
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+.comments h3 {
+    color: #6a4c93 ; 
+    font-size: 1.4rem ; 
+    margin-bottom: 0.6rem ; 
+    text-align: center ;
+}
+
+#commentForm label {
+    display: block ;
+    margin-bottom: 2px ;
+    font-weight: bold ;
+    color: #333 ;
+    font-size: 0.8rem ; 
+}
+
+#commentForm input[type="text"],
+#commentForm input[type="email"],
+#commentForm textarea {
+    width: 100% ;
+    padding: 0.5rem ; 
+    margin-bottom: 0.6rem ; 
+    border: 1px solid #ccc;
+    border-radius: 3px ; 
+    font-size: 0.8rem ; 
+    box-sizing: border-box ;
+}
+
+#commentForm textarea {
+    min-height: 100px ; 
+    resize: vertical;
+}
+
+/* Styling for the Submit Button (using existing .button class) */
+.button {
+    padding: 0.5rem 1rem ; 
+    font-size: 0.8rem;   
+}
+
+.comment-form {
+    background-color: #f8f8f8 ;
+    padding: 0.8rem ; 
+    border-radius: 8px ;
+    margin-top: 1.2rem ; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) ;
+}
+
+/* Smaller screens adjustment */
+@media (max-width: 600px) {
+    .comments {
+        padding: 0.8rem ;
+        max-width: 90% ; 
+        margin-left: auto ;
+        margin-right: auto ;
+    }
+
+    #commentForm label {
+        font-size: 0.7rem ;
+    }
+
+    #commentForm input[type="text"],
+    #commentForm input[type="email"],
+    #commentForm textarea {
+        padding: 0.4rem ;
+        font-size: 0.7rem ;
+    }
+    .button { 
+        padding: 0.4rem 0.8rem ; 
+        font-size: 0.7rem ;   
+    }
+}
+.section-link{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.play-button {
+    width: 50px;  /* Ensures it's a circle */
+    height: 50px;
+    border-radius: 50%;  /* Makes it round */
+    background-color: #6a4c93; /* Match your theme */
+    color: white;
+    font-size: 16px;  /* Adjust text size */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.button:hover {
-    background-color: #513a72; /* Darker purple on hover */
+.play-button:hover {
+    background-color: #513a72;
 }
 
-/* Add this to make the website responsive */
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin-bottom: 10px;
-    }
+/* Ensure text inside does not overflow */
+.play-button span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.secret-key-clue {
+    background-color: #f9f9f9; /* Light grey background */
+    border-left: 5px solid #6a4c93; /* Your theme purple accent */
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+.secret-key-clue h4 {
+    margin-top: 0;
+    color: #6a4c93;
+}
+/* =================================== */
+/* === Styles for Navigation Buttons === */
+/* =================================== */
 
-    #subscription input[type="email"] {
-        width: 100%;
-    }
+/* Base style for the navigation buttons */
+.nav-button {
+    display: inline-block;          /* Allows us to add padding and makes the link behave like a button */
+    padding: 10px 18px;             /* Adds space inside the button (top/bottom and left/right) */
+    background-color: #6a4c93;      /* Your theme purple */
+    color: #fff;                    /* White text */
+    text-decoration: none;          /* Removes the default link underline */
+    text-align: center;
+    border-radius: 5px;             /* Creates the rounded corners */
+    font-weight: bold;
+    border: 2px solid transparent;  /* A transparent border to prevent shifting on hover */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Makes hover effects smooth */
+}
+
+/* Hover effect for the buttons */
+.nav-button:hover {
+    background-color: #513a72;      /* The darker purple you use for button hovers */
+    color: #ffd700;                 /* Gold text on hover for a nice effect */
+    transform: translateY(-2px);    /* Lifts the button slightly on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow on hover */
+}
+
+/* Style for the "active" page button (Optional but Recommended) */
+/* This highlights the button for the page the user is currently on. */
+/* You would need to add class="active" to the corresponding nav link on each page. */
+.nav-button.active {
+    background-color: #ffd700;      /* Gold background for the active page */
+    color: #6a4c93;                 /* Purple text on the active button */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* A subtle inset shadow or glow */
+    transform: translateY(0);       /* Don't lift the active button on hover */
+}
+
+/* Adjust the gap in the .nav-list to accommodate button styling */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px; /* You might want to reduce the gap slightly */
+    align-items: center; /* Vertically align buttons in the nav bar */
+}
+/* ======================================================= */
+/* === FORCED CENTERING for Cafe Intro and Button === */
+/* ======================================================= */
+
+/* This is the main container for the intro text and button */
+.page-intro-container {
+    position: relative;     /* This is CRUCIAL. It becomes the positioning 'anchor' for the button. */
+    text-align: center;     /* Center the h2 and p text */
+    padding-bottom: 80px;   /* Creates space BELOW the text to make room for the button */
+    margin-bottom: 20px;    /* Space between this whole section and the cards below */
+}
+
+/* Now we position the button absolutely within the container */
+.page-intro-container .play-button {
+    position: absolute;     /* Takes the button out of the normal document flow */
+    bottom: 10px;           /* Positions it 10px from the bottom of the container */
+    left: 50%;              /* Moves the LEFT EDGE of the button to the horizontal center */
+    transform: translateX(-50%); /* Moves the button back to the left by HALF its own width, perfectly centering it */
+    margin-top: 0;          /* Reset any top margin it might have */
 }
