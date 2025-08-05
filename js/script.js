@@ -59,5 +59,16 @@ window.onload = function () {
 
             console.log("Access Denied ❌");
         }
+        const menuToggle = document.querySelector('.menu-toggle');
+const navList = document.querySelector('.nav-list');
+
+menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+    document.body.classList.toggle('nav-open');
+});
+
+
+        
+        
     });
 };
