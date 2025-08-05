@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const confettiSettings = { 
         target: 'confetti-canvas', 
         props: [
-          'circle',
-          'square',
-          'triangle',
-          'line',
-          { type: 'svg', src: 'my-svg-path', width: 10, height: 10 }
+            'circle',
+            'square',
+            'triangle',
+            'line',
+            { type: 'svg', src: 'my-svg-path', width: 10, height: 10 }
         ],
         colors: ['#6a4c93', 'rgb(241, 230, 166)'],
         clock: '200'
@@ -18,10 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
         card.addEventListener('click', () => {
             card.classList.toggle('flipped');
-            // Play Flip Sound
-            flipSound.currentTime = 0; // Reset to start, in case it's already playing
-            flipSound.play();
-             jsConfetti.addConfetti();
+
+            // Play flip sound using a cloned audio element for non-blocking playback
+            try {
+                const soundClone = flipSound.cloneNode();
+                soundClone.play();
+            } catch (e) {
+                // Handle play error silently or log if needed
+                console.warn('Flip sound playback failed:', e);
+            }
+
+            // Add confetti only if the canvas isn't already active to avoid performance issues
+            if (!document.getElementById('confetti-canvas')) {
+                jsConfetti.addConfetti();
+            }
         });
     });
 });
