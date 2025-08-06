@@ -436,7 +436,7 @@ audio#victory.playing {
 }
 
 .blog-post ul li::before {
-    content: "💭 "; /* Whisper Emoji */
+    content: "💭 "; 
     font-size: 1.4rem;
     margin-right: 10px;
     vertical-align: middle;
@@ -1105,3 +1105,13 @@ p{
     transform: translateX(-50%); 
     margin-top: 0;         
 }
+.mobile-back-button {
+  display: none; /* hidden by default */
+}
+
+@media (max-width: 768px) {
+  .mobile-back-button {
+    display: inline-block; /* show only on mobile */
+  }
+}
+
