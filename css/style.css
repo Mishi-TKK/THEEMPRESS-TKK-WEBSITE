@@ -1111,7 +1111,7 @@ p{
 
 @media (max-width: 768px) {
   .mobile-back-button {
-    display: inline-block; /* show only on mobile */
+    display: inline-block !important; /* show only on mobile */
   }
 }
 
