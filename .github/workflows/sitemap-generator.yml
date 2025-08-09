@@ -16,9 +16,8 @@ jobs:
       - name: Generate Sitemap
         uses: cicirello/sitemap-generator-action@v1
         with:
-          # This is the root URL of your live site.
           site_root: 'https://theempressforge.com'
-          
+
       - name: Commit and Push Sitemap
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
