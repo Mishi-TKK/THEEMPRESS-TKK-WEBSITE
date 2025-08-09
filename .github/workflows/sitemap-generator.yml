@@ -6,23 +6,26 @@ on:
       - main
 
 jobs:
-  sitemap_job:
+  build:
     runs-on: ubuntu-latest
-    name: Generate Sitemap
+
     steps:
-      - name: Checkout Code
+      - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Generate Sitemap
-        uses: cicirello/sitemap-generator-action@v1
         with:
-          site_root: 'https://theempressforge.com'
+          fetch-depth: 0 # Fetches all history for accurate last modified dates
 
-      - name: Commit and Push Sitemap
+      - name: Generate sitemap
+        uses: mathiasMav/sitemap-generator@v2.2.0 
+        with:
+         
+          domain: https://theempressforge.com
+          
+      - name: Push sitemap.xml
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Automated sitemap generation"
-          file_pattern: sitemap.xml
+          file_pattern: sitemap.xml # Only commit the sitemap file
           commit_user_name: Sitemap Generator Bot
           commit_user_email: sitemap.generator@users.noreply.github.com
           commit_author: Sitemap Generator Bot <sitemap.generator@users.noreply.github.com>
