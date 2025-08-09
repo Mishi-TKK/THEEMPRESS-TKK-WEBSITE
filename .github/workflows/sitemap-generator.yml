@@ -5,27 +5,46 @@ on:
     branches:
       - main
 
+# Allow the workflow to push commits back to the repo
+permissions:
+  contents: write
+
 jobs:
-  build:
+  generate_sitemap:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (full history for <lastmod>)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetches all history for accurate last modified dates
+          fetch-depth: 0
+
+      # OPTIONAL: build your site here if you generate HTML during CI.
+      # Example (uncomment & adapt if you need a build step):
+      # - name: Build site
+      #   run: |
+      #     npm ci
+      #     npm run build
+      #     # make sure built html lands in the path-to-root below (., docs, public, etc.)
 
       - name: Generate sitemap
-        uses: mathiasMav/sitemap-generator@v2.2.0 
+        id: sitemap
+        uses: cicirello/generate-sitemap@v1
         with:
-         
-          domain: https://theempressforge.com
-          
-      - name: Push sitemap.xml
+          # IMPORTANT: include trailing slash; this is your site's base URL
+          base-url-path: 'https://theempressforge.com/'
+          # If your site root is the repository root, leave '.'.
+          # If your static site is in 'docs' or 'public', put that folder name here.
+          path-to-root: '.'
+          include-html: true
+          include-pdf: false
+          drop-html-extension: true
+
+      - name: Commit sitemap.xml
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Automated sitemap generation"
-          file_pattern: sitemap.xml # Only commit the sitemap file
-          commit_user_name: Sitemap Generator Bot
-          commit_user_email: sitemap.generator@users.noreply.github.com
-          commit_author: Sitemap Generator Bot <sitemap.generator@users.noreply.github.com>
+          file_pattern: sitemap.xml
+          commit_user_name: "Sitemap Generator Bot"
+          commit_user_email: "sitemap.generator@users.noreply.github.com"
+          commit_author: "Sitemap Generator Bot <sitemap.generator@users.noreply.github.com>"
