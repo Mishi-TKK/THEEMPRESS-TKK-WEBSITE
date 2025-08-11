@@ -5,7 +5,6 @@ on:
     branches:
       - main
 
-# Allow the workflow to push commits back to the repo
 permissions:
   contents: write
 
@@ -19,26 +18,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      # OPTIONAL: build your site here if you generate HTML during CI.
-      # Example (uncomment & adapt if you need a build step):
-      # - name: Build site
-      #   run: |
-      #     npm ci
-      #     npm run build
-      #     # make sure built html lands in the path-to-root below (., docs, public, etc.)
-
       - name: Generate sitemap
         id: sitemap
         uses: cicirello/generate-sitemap@v1
         with:
-          # IMPORTANT: include trailing slash; this is your site's base URL
           base-url-path: 'https://theempressforge.com/'
-          # If your site root is the repository root, leave '.'.
-          # If your static site is in 'docs' or 'public', put that folder name here.
           path-to-root: '.'
           include-html: true
           include-pdf: false
           drop-html-extension: true
+          # 👇 exclude your template page from the sitemap
+          exclude-paths: '/blog/template.html,/blog/template'
 
       - name: Commit sitemap.xml
         uses: stefanzweifel/git-auto-commit-action@v5
