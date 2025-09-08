@@ -27,8 +27,9 @@ jobs:
           include-html: true
           include-pdf: false
           drop-html-extension: true
-          # 👇 exclude your template page from the sitemap
-          exclude-paths: '/blog/template.html,/blog/template'
+          # 👇 exclude your template page and archive from the sitemap
+          exclude-paths: '/blog/template.html,/blog/template,/pages/blog-archive'
+
 
       - name: Commit sitemap.xml
         uses: stefanzweifel/git-auto-commit-action@v5
