@@ -22,56 +22,62 @@ window.onload = function () {
     ];
 
     // Play background instrumental at low volume on page load
-    if (whisperSong) {
+   // 🎵 Background music
+if (whisperSong) {
     whisperSong.volume = 0.3;
-
-    //whisperSong.volume = 0.3;
     whisperSong.loop = true;
-    whisperSong.play().then(() => {
-        console.log("Whisper Music Activated 🎶");
-    }).catch(e => console.error("Background Audio Error:", e));
+
+    whisperSong.play()
+        .then(() => console.log("Whisper Music Activated 🎶"))
+        .catch(e => console.error("Background Audio Error:", e));
 }
+
+// 🔐 Whisper button
+if (whisperBtn) {
     whisperBtn.addEventListener("click", function () {
-        const passcode = document.getElementById("passcode").value.toLowerCase();
+
+        const passcodeInput = document.getElementById("passcode");
+        if (!passcodeInput) return;
+
+        const passcode = passcodeInput.value.toLowerCase();
 
         if (passcode === "remnant") {
             console.log("Welcome, Remnant 🔥");
-            message.innerHTML = blessings[0]; // Only show the first blessing message
+            message.innerHTML = blessings[0];
             message.classList.add("visible");
 
-            // Hide the password form and fade out the gate
             secretGate.classList.add("fade-out");
 
             setTimeout(() => {
                 secretGate.style.display = "none";
 
-                // Background music will KEEP playing 🔥
-                whisperSong.volume = 0.2;
+                if (whisperSong) whisperSong.volume = 0.2;
 
-                // Play Hallelujah Anthem at the same time
-                victory.play().then(() => {
-                    console.log("Hallelujah Anthem Released!");
-                });
+                if (victory) {
+                    victory.play()
+                        .then(() => console.log("Hallelujah Anthem Released!"))
+                        .catch(e => console.error("Victory Error:", e));
+                }
             }, 2000);
+
         } else {
-            // Show random scripture when passcode is incorrect
             const randomScripture = scriptures[Math.floor(Math.random() * scriptures.length)];
             message.innerHTML = randomScripture;
             message.classList.remove("visible");
             setTimeout(() => message.classList.add("visible"), 100);
-
             console.log("Access Denied ❌");
         }
-        const menuToggle = document.querySelector('.menu-toggle');
+    });
+}
+
+// 🍔 Menu toggle (GLOBAL)
+const menuToggle = document.querySelector('.menu-toggle');
 const navList = document.querySelector('.nav-list');
 
-menuToggle.addEventListener('click', () => {
-    navList.classList.toggle('active');
-    document.body.classList.toggle('nav-open');
-});
-
-
-        
-        
+if (menuToggle && navList) {
+    menuToggle.addEventListener('click', () => {
+        navList.classList.toggle('active');
+        document.body.classList.toggle('nav-open');
     });
-};
+}
+}
