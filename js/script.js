@@ -22,7 +22,10 @@ window.onload = function () {
     ];
 
     // Play background instrumental at low volume on page load
+    if (whisperSong) {
     whisperSong.volume = 0.3;
+}
+    //whisperSong.volume = 0.3;
     whisperSong.loop = true;
     whisperSong.play().then(() => {
         console.log("Whisper Music Activated 🎶");
