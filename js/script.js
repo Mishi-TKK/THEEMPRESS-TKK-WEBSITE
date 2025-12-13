@@ -24,13 +24,13 @@ window.onload = function () {
     // Play background instrumental at low volume on page load
     if (whisperSong) {
     whisperSong.volume = 0.3;
-}
+
     //whisperSong.volume = 0.3;
     whisperSong.loop = true;
     whisperSong.play().then(() => {
         console.log("Whisper Music Activated 🎶");
     }).catch(e => console.error("Background Audio Error:", e));
-
+}
     whisperBtn.addEventListener("click", function () {
         const passcode = document.getElementById("passcode").value.toLowerCase();
 
