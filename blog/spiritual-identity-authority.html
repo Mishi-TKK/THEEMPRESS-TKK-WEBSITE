@@ -95,7 +95,28 @@
     <script src="../js/music-controller.js"></script>
    
 
-    
+    <script>
+    // Client-Side JavaScript to handle form submission
+    document.getElementById('commentForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form from refreshing the page
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const comment = document.getElementById('comment').value;
+
+        // Display thank you message
+        document.getElementById('responseMessage').innerText = "Thank you for your comment! It will be reviewed shortly.";
+
+        // Temporarily display comment in a list (for demo purposes)
+        const commentListItem = document.createElement('li');
+        commentListItem.innerHTML = `<strong>${name}:</strong> ${comment}`;
+        document.getElementById('commentsList').appendChild(commentListItem);
+
+        // Clear the form after submission
+        document.getElementById('commentForm').reset();
+    });
+    </script>
    
 </body>
 </html>
