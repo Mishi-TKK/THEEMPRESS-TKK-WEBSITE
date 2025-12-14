@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         toggleBtn.addEventListener("click", () => {
             if (audio.paused) {
-                audio.play();
+                audio.play().catch(e => {
+                    console.warn("Card audio blocked until user interaction", e);
+                });
                 toggleBtn.textContent = "Pause";
             } else {
                 audio.pause();
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --------- Global background music with preference ---------
+    // --------- Global background music with user preference ---------
     const backgroundAudio = document.getElementById("background-audio");
     const globalToggleBtn = document.getElementById("audio-toggle");
 
@@ -30,24 +32,46 @@ document.addEventListener("DOMContentLoaded", () => {
         let musicPref = localStorage.getItem("musicPreference");
 
         if (!musicPref) {
+            // Ask user only if no preference saved
             const continueMusic = confirm("Would you like music to continue while reading?");
             musicPref = continueMusic ? "on" : "off";
             localStorage.setItem("musicPreference", musicPref);
         }
 
-        // Apply preference
+        // Set initial button state
         if (musicPref === "off") {
             backgroundAudio.pause();
             globalToggleBtn.textContent = "Play";
         } else {
-            backgroundAudio.play();
+            backgroundAudio.pause(); // Start paused, will play after user interaction
             globalToggleBtn.textContent = "Pause";
         }
+
+        // Wait for first user interaction to start audio
+        let userInteracted = false;
+        function enableBackgroundAudio() {
+            if (userInteracted) return;
+            userInteracted = true;
+
+            if (musicPref === "on") {
+                backgroundAudio.play().catch(e => {
+                    console.warn("Background audio blocked until user interaction", e);
+                });
+            }
+
+            document.removeEventListener("click", enableBackgroundAudio);
+            document.removeEventListener("touchstart", enableBackgroundAudio);
+        }
+
+        document.addEventListener("click", enableBackgroundAudio);
+        document.addEventListener("touchstart", enableBackgroundAudio);
 
         // Toggle button listener
         globalToggleBtn.addEventListener("click", () => {
             if (backgroundAudio.paused) {
-                backgroundAudio.play();
+                backgroundAudio.play().catch(e => {
+                    console.warn("Background audio blocked until user interaction", e);
+                });
                 localStorage.setItem("musicPreference", "on");
                 globalToggleBtn.textContent = "Pause";
             } else {
