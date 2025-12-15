@@ -1,3 +1,20 @@
+
+// ===== Chrome Android freeze fix (safe, scoped) =====
+(function chromeAndroidFix() {
+    const ua = navigator.userAgent;
+
+    const isAndroid = /Android/i.test(ua);
+    const isChrome = /Chrome/i.test(ua) && !/Edg|OPR|SamsungBrowser/i.test(ua);
+
+    if (!(isAndroid && isChrome)) return;
+
+    window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+            location.reload();
+        }
+    });
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // --------- Per-card audio handling ---------
